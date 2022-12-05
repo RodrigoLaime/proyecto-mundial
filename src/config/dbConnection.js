@@ -5,6 +5,6 @@ module.exports = () => {
     host: 'localhost',
     user: 'root',
     password: '45725575',
-    database: 'formulario'
+    database: 'proyecto_mundial'
   });
 }
