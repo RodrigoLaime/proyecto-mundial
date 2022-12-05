@@ -10,6 +10,7 @@ app.set('port', process.env.PORT || 5500);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '..//app/views'));
 
-
+//Midelware
+app.use(bodyParser.urlencoded({ extended: false }));
 
 module.exports = app;
