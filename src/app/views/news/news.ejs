@@ -1,91 +1,85 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-    <title>HTML</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-dark bg-dark">
-      <a href="a" class="navbar-brand mx-auto">Mundial</a>
-    </nav>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mt-4 text-center">
-          <table class="table table-striped">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+  <title>HTML</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <a href="a" class="navbar-brand mx-auto">Mundial</a>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mt-4 text-center">
+        <table class="table table-striped">
+          <tr>
+            <th>team_1</th>
+            <th>goal_team_1</th>
+            <th>team_2</th>
+            <th>goal_team_2</th>
+            <th>phase</th>
+          </tr>
+          <%for(var i=0; i< match_data.length; i++){%>
             <tr>
-              <th>team_1</th>
-              <th>goal_team_1</th>
-              <th>team_2</th>
-              <th>goal_team_2</th>
-            </tr>
-            <%for(var i=0; i< match_data.length; i++){%>
-            <tr>
-              <td><%=match_data[i].team_1%></td>
-              <td><%=match_data[i].goal_team_1%></td>
-              <td><%=match_data[i].team_2%></td>
-              <td><%=match_data[i].goal_team_2%></td>
+              <td>
+                <%=match_data[i].team_1%>
+              </td>
+              <td>
+                <%=match_data[i].goal_team_1%>
+              </td>
+              <td>
+                <%=match_data[i].team_2%>
+              </td>
+              <td>
+                <%=match_data[i].goal_team_2%>
+              </td>
+              <td>
+                <%=match_data[i].phase%>
+              </td>
             </tr>
             <%}%>
-          </table>
-        </div>
+        </table>
+      </div>
 
-        <div class="col-md-6 mt-4 card">
-          <form action="/news" method="post" class="card-body">
-            <h3 class="card-title">Partidos</h3>
+      <div class="col-md-6 mt-4 card">
+        <form action="/news" method="post" class="card-body">
+          <h3 class="card-title">Partidos</h3>
 
-            <div class="form-group">
-              <input
-                id="team_1"
-                type="text"
-                name="team_1"
-                class="form-control"
-                placeholder="team 1"
-              />
-            </div>
+          <div class="form-group">
+            <input type="text" name="team_1" class="form-control" placeholder="team 1" id="team_1" />
+          </div>
 
-            <div class="form-group">
-              <input
-                type="text"
-                name="goal_team_1"
-                class="form-control"
-                placeholder="Cantidad de goles E1"
-              />
-            </div>
+          <div class="form-group">
+            <input type="text" name="goal_team_1" class="form-control" placeholder="Cantidad de goles E1" id="goal_1" />
+          </div>
 
-            <div class="form-group">
-              <input
-                type="text"
-                name="team_2"
-                class="form-control"
-                placeholder="team 2"
-              />
-            </div>
+          <div class="form-group">
+            <input type="text" name="team_2" class="form-control" placeholder="team 2" id="team_2" />
+          </div>
 
-            <div class="form-group">
-              <input
-                type="text"
-                name="goal_team_2"
-                class="form-control"
-                placeholder="Cantidad de goles E2"
-              />
-            </div>
+          <div class="form-group">
+            <input type="text" name="goal_team_2" class="form-control" placeholder="Cantidad de goles E2" id="goal_2" />
+          </div>
 
-            <input type="submit" class="btn btn-primary" />
-          </form>
-        </div>
+          <div class="form-group">
+            <input type="text" name="phase" class="form-control" placeholder="Phase" id="phase" />
+          </div>
+
+          <input type="submit" class="btn btn-primary" id="btn" />
+        </form>
       </div>
     </div>
+  </div>
 
-    <script>
-      document.getElementById("team_1").focus();
-    </script>
-  </body>
+  <script src="">
+    document.getElementById("team_1").focus();
+  </script>
+</body>
+
 </html>

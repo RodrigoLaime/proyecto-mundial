@@ -1,10 +1,14 @@
 const dbConnection = require('../../config/dbConnection');
+/* const bcrypt = require('bcrypt-nodejs');//para encriptar */
+
+//const validatorHandler = require('../../../midleware/validator');
+//const { createProductSchema } = require('../../schema/product.schema');
 
 module.exports = app => {
   const connection = dbConnection();
 
   app.get('/', (req, res) => {
-    connection.query('SELECT * FROM match_data', (err, result) => {
+    connection.query('SELECT DISTINCT team_1, goal_team_1, team_2, goal_team_2, phase FROM match_data', (err, result) => {
       console.log(result)
       res.render('news/news', {
         match_data: result
@@ -12,15 +16,19 @@ module.exports = app => {
     });
   });
 
-  app.post('/news', (req, res) => {
-    const { team_1, goal_team_1, team_2, goal_team_2 } = req.body;
-    connection.query('INSERT INTO match_data SET?', {
-      team_1,
-      goal_team_1,
-      team_2,
-      goal_team_2
-    }, (err, result) => {
-      res.redirect('/');
+  app.post('/news',/* 
+    validatorHandler(createProductSchema, 'body'), */
+    (req, res) => {
+      const { team_1, goal_team_1, team_2, goal_team_2, phase } = req.body;
+      connection.query('INSERT INTO match_data SET?', {
+        team_1,
+        goal_team_1,
+        team_2,
+        goal_team_2,
+        phase
+      }, (err, result) => {
+        res.redirect('/');
+        return err
+      })
     })
-  })
 }
